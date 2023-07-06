@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:threads_clone/screens/change_account_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -36,6 +37,7 @@ class LoginScreen extends StatelessWidget {
                     shadowColor: Colors.transparent,
                     backgroundColor: Colors.white,
                     foregroundColor: const Color.fromRGBO(217, 217, 217, 1),
+                    splashFactory: NoSplash.splashFactory,
                   ),
                   onPressed: () {},
                   child: Row(
@@ -68,8 +70,14 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const Center(
-                child: Text(
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        const ChangeAccountScreen(),
+                  ),
+                ),
+                child: const Text(
                   'Hesap değiştir',
                   style: TextStyle(
                     color: Color.fromRGBO(153, 153, 153, 1),
